@@ -9,6 +9,7 @@
   
     a,创建package.json   $:npm init  (用于保存项目元数据)
     b，创建Gruntfile.js  $:grunt-init gruntfile (用于配置或定义任务、加载 Grunt 插件)
+    git clone https://github.com/gruntjs/grunt-init-gruntfile.git ~/.grunt-init/gruntfile(3-b,必须依赖)
 
 4,$:npm install grunt --save-dev
   npm安装package.json时  直接转到当前项目目录下用命令npm install 或npm install --save-dev安装即可，

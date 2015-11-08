@@ -22,4 +22,12 @@
     grunt-contrib-connect:浏览器窗口打开
     grunt-contrib-watch:文件监听
 
+方案2：
+StaticPage 静态页面自动化工具
+a, git clone https://github.com/foru17/StaticPage.git && cd StaticPage && sh go.sh
 
+b,修改`package.json`、`Gruntfile.js`配置文件
+
+c,npm install
+
+d,开始项目（可参考：README.md文件）

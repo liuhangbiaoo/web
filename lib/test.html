@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- 垂直水平居中 -->
+    <script src="js/plugin/jquery.verticalAlignMiddle.js"></script>
+    <!-- 垂直水平居中 end -->
+    <!-- 屏幕居中 -->
+    <script src="js/plugin/jquery.windowCenter.js"></script>
+    <!-- 屏幕居中 end-->
+    <!-- jquert.tool -->
+    <script src="js/jquery.tool.js"></script>
+    <!-- jquert.tool end-->
+</head>
+
+<body>
+    <style>
+    #xs {
+        width: 250px;
+        height: 185px;
+        position: relative;
+        margin: 0 auto;
+        background: #010;
+        margin-top: 40px;
+    }
+    
+    #xs a {
+        display: block;
+        width: 120px;
+        height: 200px;
+        background: #090;
+    }
+    #box{
+        width: 400px; 
+        height: 350px;
+        background: #090; 
+    }
+    </style>
+    <div id="xs">
+        <a href="/">1</a>
+    </div>
+
+
+    <div id="box">zxc</div>
+
+    <input type="text" value="请输入信息">
+
+    <script>
+$(document).ready(function() {
+    $("#xs a").vaCenter();
+	$("#box").center();
+    // banMous();
+
+    $("input").inputValue();
+});
+    </script>
+
+<div id="div1" style="width: 400px;height: 400px; border: 1px solid #000;"></div>
+
+    <script>
+   function moveDiv(div, fps) {
+        var left = 0;
+        var param = 1;
+
+        function loop () {
+            update();
+            draw();
+        }
+
+        function update() {
+            left += param * 2;
+            if (left > 300) {
+                left = 300;
+                param = -1;
+            } else if (left < 0) {
+                left = 0;
+                param = 1;
+            }
+        }
+
+        function draw() {
+            div.style.left = left + "px";
+        }
+
+        setInterval(loop, 1000 / fps);
+    }
+    moveDiv(document.getElementById("div1"), 60);
+    </script>
+</body>
+
+</html>

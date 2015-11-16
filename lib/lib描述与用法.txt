@@ -18,3 +18,4 @@ github:
 1,git add .\lib描述与用法.txt
 2, git  commit -m "lib 工程描述及用法！"
 3,git push -u origin master
+4,username+password

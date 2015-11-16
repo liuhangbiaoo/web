@@ -1,4 +1,20 @@
-lib:库文件目录-->[公共资源目录]
+﻿lib:库文件目录-->[公共资源目录]
 ---css:样式文件
 ---img:图片文件
 ---js:javascript文件
+
+
+
+
+
+
+
+
+
+
+
+
+github:
+1,git add .\lib描述与用法.txt
+2, git  commit -m "lib 工程描述及用法！"
+3,git push -u origin master

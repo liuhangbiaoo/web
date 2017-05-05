@@ -152,6 +152,24 @@ $ npm i -D webpack webpack-dev-server html-webpack-plugin babel-core babel-loade
      }
 
 
+
+    test: /\.(png|jpg|jpeg|gif|svg)$/i,
+    use: [{
+         //加载url-loader 同时安装 file-loader;
+         loader : 'url-loader',
+         options : {
+             //小于10000K的图片文件转base64到css里,当然css文件体积更大;
+             limit : 10000,
+             //设置最终img路径;
+             name : '/i/[name]-[hash].[ext]'
+         }
+     },
+     {
+         //压缩图片(另一个压缩图片：image-webpack-loader);
+         loader : 'img-loader?minimize&optimizationLevel=5&progressive=true'
+     }]
+
+
 *** loaders之文件处理 ***
 
     . file-loader:文件处理

@@ -97,7 +97,7 @@ module.exports = {
                      //小于10000K的图片文件转base64到css里,当然css文件体积更大;
                      limit : 10000,
                      //设置最终img路径;
-                     name : '/i/[name]-[hash].[ext]'
+                     name : './images/[name]-[hash].[ext]'
                  }
              },
              {
@@ -108,6 +108,20 @@ module.exports = {
             test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
             loader: 'file-loader',
             // exclude: /node_modules/ //需要排除的目录
+            // },{
+            //     test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+            //     loader: 'url-loader',
+            //     query: {
+            //       limit: 10000,
+            //       name: './images/[name].[hash:7].[ext]'
+            //     }
+            // },{
+            //     test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+            //     loader: 'url-loader',
+            //     query: {
+            //       limit: 10000,
+            //       name:'./css/fonts/[name].[hash:7].[ext]'
+            //     }
         },{
             test: /\.json$/,
             use: 'json-loader',

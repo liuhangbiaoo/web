@@ -7,3 +7,4 @@ top();
 
 
 // require("url-loader?limit=10000!./images/js.jpg");
+require("./images/js.jpg");

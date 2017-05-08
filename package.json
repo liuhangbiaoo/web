@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "git":"git pull && git add . && git commit -m 'uploade' && git push"
+    "git": "git pull && git add . && git commit -m 'uploade' && git push"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
     "html-webpack-plugin": "^2.28.0",
+    "html-withimg-loader": "^0.1.16",
     "img-loader": "^2.0.0",
     "json-loader": "^0.5.4",
     "less": "^2.7.2",

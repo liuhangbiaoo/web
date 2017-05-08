@@ -9,18 +9,15 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 const HtmlLoader = require('html-withimg-loader');
 
-// Create multiple instances 
-// const extractCSS = new ExtractTextPlugin('./css/[name].css');
-// const extractLESS = new ExtractTextPlugin('./css/[name].less.css');
+// 部分参考
+// https://github.com/webpack-contrib
 
 module.exports = {
     // devtool: 'eval-source-map', //开启sourceMap便于调试
     entry: './src/main.js', //入口文件
     output: {
-        path: path.resolve("./build"),
-        // path: path.resolve(__dirname, 'build'), // 指定打包之后的文件夹
+        path: path.resolve(__dirname, 'build'), // 指定打包之后的文件夹
         // publicPath: '/assets/', //指定资源文件引用的目录
-        // filename: 'bundle.js' // 指定打包为一个文件 bundle.js
         filename: './js/[name].[hash].js', // 可以打包为多个文件
         library: "daosen",
         libraryTarget: "umd",
@@ -75,73 +72,34 @@ module.exports = {
                 },'less-loader'],
                 publicPath: '../'
             }),
-             // exclude: /node_modules/ //需要排除的目录
         },{
-            test: /\.(js[x]|es6)$/,
+            test: /\.(js|es6)$/,
             loader: 'babel-loader?presets[]=es2015', //此处不能用use
-            // exclude: /node_modules/ //需要排除的目录
         },{
-            //     test: /\.(png|jpg)$/,//图片文件使用 url-loader 来处理，小于8kb的直接转为base64
-            //     loader: 'url-loader?limit=8192',
-            //     // exclude: /node_modules/ //需要排除的目录
-            // },{
-            //       test: /\.(jpe?g|png|gif|svg)$/i,
-            //       use: [
-            //         'url-loader?limit=10000',
-            //         'img-loader'
-            //       ]
-            // //正则匹配后缀.png、.jpg、.gif图片文件;
-            // test: /\.(png|jpg|jpeg|gif|svg)$/i,
-            // use: [{
-            //      //加载url-loader 同时安装 file-loader;
-            //      loader : 'url-loader',
-            //      options : {
-            //          //小于10000K的图片文件转base64到css里,当然css文件体积更大;
-            //          limit : 10000,
-            //          //设置最终img路径;
-            //          name : '../images/[name]-[hash:8].[ext]'
-            //      }
-            //  // },
-            //  // {
-            //  //     //压缩图片(另一个压缩图片：image-webpack-loader);
-            //  //     loader : 'img-loader?minimize&optimizationLevel=5&progressive=true'
-            //  }]
-        // },{
-        //     test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-        //     loader: 'file-loader?name=images/[name].[hash:8].[ext]',
-            // exclude: /node_modules/ //需要排除的目录
-            // },{
-                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-                use: [{
-                     //加载url-loader 同时安装 file-loader;
-                     loader : 'url-loader',
-                     options : {
-                         //小于10000K的图片文件转base64到css里,当然css文件体积更大;
-                         limit : 10000,
-                         //设置最终img路径;
-                         name : 'images/[name]-[hash:8].[ext]'
-                     }
-                 },'img-loader']
-                // loader:'file-loader?name=[name].[ext]&publicPath=./&outputPath=build/images/'
-                // loader: 'url-loader',
-                // query: {
-                //   limit: 10000,
-                //   name: 'images/[name].[hash:7].[ext]'
-                // }
-            },{
-                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-                loader: 'url-loader',
-                query: {
-                  limit: 10000,
-                  name:'css/fonts/[name].[hash:7].[ext]'
-                }
+            test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+            use: [{
+                 //加载url-loader 同时安装 file-loader;
+                 loader : 'url-loader',
+                 options : {
+                     //小于10000K的图片文件转base64到css里,当然css文件体积更大;
+                     limit : 10000,
+                     //设置最终img路径;
+                     name : 'images/[name]-[hash:8].[ext]'
+                 }
+             }]
+            // loader:'file-loader?name=[name].[ext]&publicPath=./&outputPath=build/images/'
+            // loader: 'url-loader',
+            // query: {
+            //   limit: 10000,
+            //   name: 'images/[name].[hash:7].[ext]'
+            // }
         },{
-            test: /\.json$/,
-            use: 'json-loader'
-        },{
-            test: /\.(txt|html)$/,
-            use: 'raw-loader',
-            // exclude: /node_modules/ //需要排除的目录
+            test: /\.(woff2?|woff|eot|ttf|otf)(\?.*)?$/,
+            loader: 'url-loader',
+            query: {
+              limit: 10000,
+              name:'fonts/[name].[hash:7].[ext]'
+            }
         }]
     },
     // 配置devServer各种参数
@@ -163,6 +121,5 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(), // 热加载插件
         new ExtractTextPlugin("./css/[name].[hash].css"),
         new webpack.BannerPlugin('Created by daosen on 2017-05-08 10:20:08. Email:liuhangbiaoo@gmail.com')  
-        // new ExtractTextPlugin("./css/[name].[hash].css") 
     ]
 }

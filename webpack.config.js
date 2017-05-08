@@ -107,7 +107,7 @@ module.exports = {
             loader: 'url-loader',
             query: {
               limit: 10000,
-              name:'fonts/[name].[hash:7].[ext]'
+              name:'css/fonts/[name].[hash:7].[ext]'
             }
         },{
             test: /\.json$/,
@@ -134,7 +134,7 @@ module.exports = {
         }),
         new CleanPlugin(['build']),
         new webpack.optimize.CommonsChunkPlugin('common'),//提取公共代码
-        // new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}),//压缩
+        new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}),//压缩
         new webpack.HotModuleReplacementPlugin(), // 热加载插件
         new ExtractTextPlugin("./css/[name].[hash].css"),
         new webpack.BannerPlugin('Created by daosen on 2017-05-08 10:20:08. Email:liuhangbiaoo@gmail.com')  

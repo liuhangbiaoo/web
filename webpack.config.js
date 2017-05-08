@@ -77,7 +77,7 @@ module.exports = {
             }),
              // exclude: /node_modules/ //需要排除的目录
         },{
-            test: /\.(js|es6)$/,
+            test: /\.(js[x]|es6)$/,
             loader: 'babel-loader?presets[]=es2015', //此处不能用use
             // exclude: /node_modules/ //需要排除的目录
         },{
@@ -121,7 +121,7 @@ module.exports = {
                          //设置最终img路径;
                          name : 'images/[name]-[hash:8].[ext]'
                      }
-                 }]
+                 },'img-loader']
                 // loader:'file-loader?name=[name].[ext]&publicPath=./&outputPath=build/images/'
                 // loader: 'url-loader',
                 // query: {

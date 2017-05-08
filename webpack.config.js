@@ -114,6 +114,7 @@ module.exports = {
             use: 'json-loader'
         },{
             //https://github.com/pcardune/handlebars-loader/tree/master/examples
+            //http://www.cnblogs.com/qieguo/p/5811988.html
              test:/\.hbs$/,
              loader: "handlebars-loader"
         }]
@@ -133,7 +134,7 @@ module.exports = {
         }),
         new CleanPlugin(['build']),
         new webpack.optimize.CommonsChunkPlugin('common'),//提取公共代码
-        new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}),//压缩
+        // new webpack.optimize.UglifyJsPlugin({compress: {warnings: false}}),//压缩
         new webpack.HotModuleReplacementPlugin(), // 热加载插件
         new ExtractTextPlugin("./css/[name].[hash].css"),
         new webpack.BannerPlugin('Created by daosen on 2017-05-08 10:20:08. Email:liuhangbiaoo@gmail.com')  

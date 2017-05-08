@@ -9,6 +9,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 const HtmlLoader = require('html-withimg-loader');
 
+//css压缩
+const CleanCSSPlugin=require("less-plugin-clean-css");
+
 // 部分参考
 // https://github.com/webpack-contrib
 
@@ -69,7 +72,13 @@ module.exports = {
                             ];
                         }
                     }
-                },'less-loader'],
+                },{
+                    loader: "less-loader", options: {
+                        plugins: [
+                            new CleanCSSPlugin({ advanced: true})
+                        ]
+                    }
+                }],
                 publicPath: '../'
             }),
         },{
@@ -100,6 +109,13 @@ module.exports = {
               limit: 10000,
               name:'fonts/[name].[hash:7].[ext]'
             }
+        },{
+            test: /\.json$/,
+            use: 'json-loader'
+        },{
+            //https://github.com/pcardune/handlebars-loader/tree/master/examples
+             test:/\.hbs$/,
+             loader: "handlebars-loader"
         }]
     },
     // 配置devServer各种参数

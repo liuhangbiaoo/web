@@ -1,7 +1,15 @@
 <div>{{username}}</div>
 <ul>
  {{#books}}
-  <li>{{title}}</li>
+  <li>父级{{../username}}的值为{{title}}</li>
 {{/books}}
 </ul>
 {{{tko}}}
+
+{{#if books.length}}
+	<ul>
+		{{#each books}}
+			<li>{{this.title}}</li>
+		{{/each}}
+	</ul>
+{{/if}}

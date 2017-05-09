@@ -1,4 +1,4 @@
-import './toutiao.less';
+// import './toutiao.less';
 var toutiaoTemplate=require('./toutiao.hbs');
 var $=require('../../lib/jquery-1.11.1.js');
 // 数据
@@ -24,3 +24,23 @@ var tt=toutiaoTemplate(JSON.parse(sessionStorage.getItem("dd")));
 module.exports = tt;
 
 
+//判断是否是偶数
+// Handlebars.registerHelper('if_even', function(value, options) {
+// console.log('value:', value); // value: 2
+// console.log('this:', this); // this: Object {num: 2}
+// console.log('fn(this):', options.fn(this)); // fn(this): 2是偶数
+//    if((value % 2) == 0) {
+//      return options.fn(this);
+//    } else {
+//      return options.inverse(this);
+//    }
+//  });
+//  
+//  
+ // {{#if_even num}}
+ //      {{this.num}}是偶数
+ // {{else}}
+ //       {{this.num}}是奇数
+ // {{/if_even}}
+ // 
+ // 
